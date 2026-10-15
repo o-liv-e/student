@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: student-k8s-demo
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: student-k8s-demo
+  template:
+    metadata:
+      labels:
+        app: student-k8s-demo
+    spec:
+      containers:
+      - name: student-k8s-demo
+        image: YOUR_DOCKERHUB_USERNAME/student-k8s-demo:COMMIT_SHA
+        ports:
+        - containerPort: 5000
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 5000
+          initialDelaySeconds: 5
+          periodSeconds: 5
