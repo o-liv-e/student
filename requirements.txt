@@ -1,2 +1,188 @@
-Flask>=3.0,<4.0
-pytest>=8.0,<9.0
+# ==============================
+# GIT & GITHUB COMMANDS
+# ==============================
+
+git --version
+git config --global user.name "Your Name"
+git config --global user.email "you@example.com"
+git init
+git clone <repository-url>
+git status
+git add .
+git add <file-name>
+git commit -m "Initial commit"
+git log --oneline
+git diff
+git push
+git push -u origin main
+git pull
+git fetch
+git remote -v
+git remote add origin <repository-url>
+git branch
+git branch <branch-name>
+git switch -c <branch-name>
+git switch main
+git merge <branch-name>
+git branch -d <branch-name>
+git stash
+git stash pop
+git restore <file-name>
+git restore --staged <file-name>
+git revert <commit-id>
+git tag
+git show <commit-id>
+
+# ==============================
+# DOCKER COMMANDS
+# ==============================
+
+docker --version
+docker info
+docker pull nginx
+docker images
+docker build -t <image-name> .
+docker build -t <image-name>:<tag> .
+docker run <image-name>
+docker run -d <image-name>
+docker run -d -p 8080:80 nginx
+docker ps
+docker ps -a
+docker stop <container-id>
+docker start <container-id>
+docker restart <container-id>
+docker rm <container-id>
+docker rmi <image-id>
+docker logs <container-id>
+docker logs -f <container-id>
+docker exec -it <container-id> sh
+docker inspect <container-id>
+docker tag <image-name> <username>/<image-name>:<tag>
+docker login
+docker push <username>/<image-name>:<tag>
+docker logout
+docker network ls
+docker network create <network-name>
+docker volume ls
+docker volume create <volume-name>
+docker system df
+docker system prune
+docker compose up -d
+docker compose down
+docker compose ps
+docker compose logs
+docker compose build
+docker compose pull
+docker compose restart
+docker compose down -v
+
+# ==============================
+# JENKINS COMMANDS
+# ==============================
+
+java -version
+sudo systemctl start jenkins
+sudo systemctl stop jenkins
+sudo systemctl restart jenkins
+sudo systemctl status jenkins
+sudo journalctl -u jenkins
+sudo journalctl -u jenkins -f
+java -jar jenkins-cli.jar -s <jenkins-url> help
+
+# ==============================
+# KUBERNETES COMMANDS
+# ==============================
+
+kubectl version
+kubectl cluster-info
+kubectl get nodes
+kubectl get namespaces
+kubectl get pods
+kubectl get pods -A
+kubectl get pods -o wide
+kubectl describe pod <pod-name>
+kubectl logs <pod-name>
+kubectl logs -f <pod-name>
+kubectl logs <pod-name> --previous
+kubectl exec -it <pod-name> -- sh
+kubectl create deployment nginx --image=nginx
+kubectl get deployments
+kubectl describe deployment <deployment-name>
+kubectl scale deployment <deployment-name> --replicas=3
+kubectl set image deployment/<deployment-name> <container-name>=<image>:<tag>
+kubectl rollout status deployment/<deployment-name>
+kubectl rollout history deployment/<deployment-name>
+kubectl rollout undo deployment/<deployment-name>
+kubectl expose deployment nginx --port=80 --type=ClusterIP
+kubectl expose deployment nginx --port=80 --type=NodePort
+kubectl get services
+kubectl describe service <service-name>
+kubectl apply -f deployment.yaml
+kubectl apply -f service.yaml
+kubectl apply -f .
+kubectl delete -f deployment.yaml
+kubectl delete pod <pod-name>
+kubectl delete deployment <deployment-name>
+kubectl get all
+kubectl get all -A
+kubectl create namespace <namespace>
+kubectl get pods -n <namespace>
+kubectl get events
+kubectl top nodes
+kubectl top pods
+kubectl port-forward deployment/<deployment-name> 8080:80
+kubectl config get-contexts
+kubectl config current-context
+kubectl config use-context <context-name>
+kubectl config set-context --current --namespace=<namespace>
+
+# ==============================
+# LINUX COMMANDS
+# ==============================
+
+pwd
+ls
+ls -la
+cd <directory>
+mkdir <directory>
+touch <file-name>
+cat <file-name>
+cp <source> <destination>
+mv <source> <destination>
+rm <file-name>
+rm -r <directory>
+grep "<text>" <file-name>
+find . -name "<file-name>"
+chmod +x <file-name>
+ps aux
+top
+df -h
+free -h
+du -sh <directory>
+whoami
+uname -a
+ip addr
+ping <hostname>
+curl <url>
+wget <url>
+history
+clear
+sudo systemctl status <service>
+sudo systemctl restart <service>
+
+# ==============================
+# BASIC CI/CD WORKFLOW
+# ==============================
+
+git add .
+git commit -m "Update application"
+git push origin main
+
+docker build -t <username>/<app-name>:1.0 .
+docker login
+docker push <username>/<app-name>:1.0
+
+kubectl apply -f deployment.yaml
+kubectl get pods
+kubectl get services
+kubectl rollout status deployment/<deployment-name>
